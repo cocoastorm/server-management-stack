@@ -1,5 +1,6 @@
 #!/bin/sh
 
-docker-compose up -d \
+docker-compose \
   -f docker-compose.yml \
-  -f docker-compose.tailscaled.yml
+  -f docker-compose.tailscaled.yml \
+  up -d
