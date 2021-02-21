@@ -10,7 +10,6 @@ volumes:
 services:
   db:
     environment:
-      POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - db_data:/var/lib/postgresql/data
