@@ -24,7 +24,7 @@ services:
     ports:
       - "6080:6080"
     volumes:
-      - /srv/webvirtcloud-docker
+      - /srv/webvirtcloud
       - /var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock
     environment:
       DB_PASSWORD: ${DB_PASSWORD}
@@ -52,6 +52,7 @@ services:
       - "file-server"
       - "--root"
       - "/srv/webvirtcloud"
+      - "/static/*"
     image: caddy:2-alpine
 
   portainer:
