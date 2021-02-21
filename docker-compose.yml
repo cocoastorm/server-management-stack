@@ -37,6 +37,21 @@ services:
     image: kenlee/webvirtcloud-docker:latest
     container_name: wvc
 
+  wvc-assets:
+    depends_on:
+      - wvc
+    volumes_from:
+      - wvc:ro
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.wvc-assets.entrypoints: web
+      traefik.http.routers.wvc-assets.rule: Host(`${WVC_HOST}`) && PathPrefix(`/static/`)
+    command:
+      - "caddy"
+      - "file-server"
+      - "--root /srv/webvirtcloud"
+    image: caddy:2-alpine
+
   portainer:
     depends_on:
       - traefik
