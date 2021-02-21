@@ -25,6 +25,7 @@ services:
       - "6080:6080"
     volumes:
       - /srv/webvirtcloud-docker
+      - /var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock
     environment:
       DB_PASSWORD: ${DB_PASSWORD}
     labels:
