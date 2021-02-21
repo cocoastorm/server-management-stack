@@ -1,0 +1,19 @@
+version: '2'
+
+networks:
+  tailscaled:
+    external:
+      name: tailscale-vpn0
+
+services:
+  traefik:
+    networks:
+      - tailscaled
+
+  wvc-web:
+    networks:
+      - tailscaled
+
+  portainer:
+    networks:
+      - tailscaled
