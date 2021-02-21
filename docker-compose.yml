@@ -49,7 +49,8 @@ services:
     command:
       - "caddy"
       - "file-server"
-      - "--root /srv/webvirtcloud"
+      - "-listen :80"
+      - "-root /srv/webvirtcloud"
     image: caddy:2-alpine
 
   portainer:
