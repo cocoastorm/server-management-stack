@@ -3,6 +3,9 @@ version: '2'
 networks:
   wvc-backend:
 
+volumes:
+  portainer_data:
+
 services:
   db:
     environment:
