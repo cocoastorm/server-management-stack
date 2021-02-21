@@ -10,7 +10,7 @@ services:
     networks:
       - tailscaled
 
-  wvc-web:
+  wvc:
     networks:
       - tailscaled
 

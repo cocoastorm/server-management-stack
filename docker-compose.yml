@@ -27,26 +27,15 @@ services:
       - /srv/webvirtcloud-docker
     environment:
       DB_PASSWORD: ${DB_PASSWORD}
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.wvc.entrypoints: web
+      traefik.http.routers.wvc.rule: Host(`${WVC_HOST}`)
+      traefik.http.services.wvc.loadbalancer.server.port: '8000'
     networks:
       - wvc-backend
     image: kenlee/webvirtcloud-docker:latest
     container_name: wvc
-
-  wvc-web:
-    depends_on:
-      - traefik
-      - wvc
-    volumes_from:
-      - wvc:ro
-    networks:
-      - wvc-backend
-    labels:
-      traefik.enable: 'true'
-      traefik.http.routers.wvc-web.entrypoints: web
-      traefik.http.routers.wvc-web.rule: Host(`${WVC_HOST}`)
-      traefik.http.services.wvc-web.loadbalancer.server.port: '80'
-    image: kenlee/webvirtcloud-docker:web
-    container_name: wvc-web
 
   portainer:
     depends_on:
