@@ -4,12 +4,16 @@ networks:
   wvc-backend:
 
 volumes:
+  db_data:
   portainer_data:
 
 services:
   db:
     environment:
+      POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      db_data:/var/lib/postgresql/data
     networks:
       - wvc-backend
     image: postgres:13.2
