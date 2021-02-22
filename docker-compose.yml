@@ -51,7 +51,7 @@ services:
       - "caddy"
       - "file-server"
       - "--root"
-      - "/srv/webvirtcloud"
+      - "/srv/webvirtcloud/static"
     image: caddy:2-alpine
 
   portainer:
