@@ -7,8 +7,6 @@ networks:
 
 services:
   traefik:
-    command:
-      - "--providers.docker.network=tailscale-vpn0"
     networks:
       - tailscaled
 

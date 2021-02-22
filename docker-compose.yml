@@ -75,6 +75,7 @@ services:
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
+      - "--providers.docker.network=tailscale-vpn0"
     ports:
       - "80:80"
     volumes:
